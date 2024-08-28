@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生程序上传与下载</title>
+    <script>
+        function displayModel() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const modelFile = urlParams.get('file');
+            if (modelFile) {
+                document.getElementById("downloadLink").href = modelFile;
+                document.getElementById("downloadLink").textContent = "Download 模型 (ZIP)";
+            }
+        }
+    </script>
+</head>
+<body onload="displayModel()">
+    <h1>点击链接下载模型</h1>
+    <ul>
+        <li><a id="downloadLink" href="#" onclick="initiateDownload()">Download 模型 (ZIP)</a></li>
+    </ul>
+    <h1 style="font-size: smaller; color: red;">模型下载后请将文件夹解压并命名为姓名加学号的形式如：李小明+183423020125</h1>
+
+    <!-- 上传未完成程序 -->
+    <h2>上传未完成的程序</h2>
+    <form action="/upload_incomplete" method="post" enctype="multipart/form-data">
+        <input type="file" name="incompleteProgram" required>
+        <input type="submit" value="上传">
+    </form>
+
+    <!-- 下载未完成程序 -->
+    <h2>下载未完成的程序</h2>
+    <a href="student_incomplete_programs/StudentName_StudentId.zip" download>下载上次未完成的程序</a>
+
+    <!-- 上传已完成程序 -->
+    <h2>提交已完成的程序</h2>
+    <form action="/upload_complete" method="post" enctype="multipart/form-data">
+        <input type="file" name="completeProgram" required>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

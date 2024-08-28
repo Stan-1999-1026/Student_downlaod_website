@@ -1,0 +1,13 @@
+{
+  "name": "student-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "mssql": "^6.2.3"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
