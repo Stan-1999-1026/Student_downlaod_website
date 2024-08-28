@@ -1,12 +1,9 @@
 [build]
+  command = "npm run build"
+  publish = "src"
   functions = "functions"
 
 [[redirects]]
-  from = "/upload_complete"
-  to = "/.netlify/functions/upload_complete"
-  status = 200
-
-[[redirects]]
-  from = "/upload_incomplete"
-  to = "/.netlify/functions/upload_incomplete"
+  from = "/*"
+  to = "/index.html"
   status = 200
